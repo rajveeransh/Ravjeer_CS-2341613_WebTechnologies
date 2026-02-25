@@ -1,0 +1,154 @@
+/* ─────────────────────────────────────────────────────
+   Rupkala – Global Styles
+   This file is the CSS entry point, pulled in by main.jsx.
+   Tailwind directives are included first, then custom
+   global overrides and utility classes follow.
+───────────────────────────────────────────────────── */
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ──────────────────────────────────── */
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+  }
+
+  body {
+    @apply bg-cream text-ink font-body antialiased;
+    margin: 0;
+    padding: 0;
+    line-height: 1.65;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-ink;
+    line-height: 1.2;
+  }
+
+  h1 { @apply text-4xl md:text-5xl lg:text-6xl font-bold; }
+  h2 { @apply text-3xl md:text-4xl font-bold; }
+  h3 { @apply text-2xl md:text-3xl font-semibold; }
+  h4 { @apply text-xl font-semibold; }
+
+  a {
+    @apply text-brand-600 hover:text-brand-700 transition-colors duration-200;
+    text-decoration: none;
+  }
+
+  img {
+    @apply max-w-full;
+  }
+
+  ::selection {
+    @apply bg-brand-200 text-brand-900;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { @apply bg-cream-dark; }
+  ::-webkit-scrollbar-thumb { @apply bg-brand-400 rounded-full; }
+}
+
+/* ── Reusable component classes ───────────────────── */
+@layer components {
+
+  /* Primary CTA button */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2
+           bg-brand-500 hover:bg-brand-600 active:bg-brand-700
+           text-white font-accent font-semibold
+           px-6 py-3 rounded-full
+           shadow-md hover:shadow-lg
+           transition-all duration-300
+           focus:outline-none focus:ring-4 focus:ring-brand-300
+           disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  /* Secondary outlined button */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2
+           border-2 border-ink text-ink
+           hover:bg-ink hover:text-white
+           font-accent font-semibold
+           px-6 py-3 rounded-full
+           transition-all duration-300
+           focus:outline-none focus:ring-4 focus:ring-ink/20;
+  }
+
+  /* Ghost/text button */
+  .btn-ghost {
+    @apply inline-flex items-center gap-2
+           text-brand-600 hover:text-brand-700
+           font-accent font-medium underline-offset-4
+           hover:underline transition-all duration-200;
+  }
+
+  /* Card container */
+  .card {
+    @apply bg-white rounded-2xl shadow-sm hover:shadow-md
+           transition-shadow duration-300 overflow-hidden;
+  }
+
+  /* Form input base */
+  .form-input {
+    @apply w-full px-4 py-3
+           border border-gray-200 rounded-xl
+           bg-white text-ink placeholder-ink/40
+           focus:outline-none focus:ring-2 focus:ring-brand-400 focus:border-transparent
+           transition-all duration-200;
+  }
+
+  /* Section wrapper */
+  .section-wrapper {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-block px-3 py-1 text-xs font-accent font-semibold
+           rounded-full uppercase tracking-wider;
+  }
+
+  /* Tag  */
+  .tag-orange {
+    @apply badge bg-brand-100 text-brand-700;
+  }
+
+  .tag-dark {
+    @apply badge bg-ink text-white;
+  }
+}
+
+/* ── Utility overrides ────────────────────────────── */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-brand-500 to-brand-700
+           bg-clip-text text-transparent;
+  }
+
+  /* Warm section background */
+  .bg-warm {
+    background: linear-gradient(135deg, #fff7ed 0%, #fef9f0 100%);
+  }
+
+  /* Dark hero overlay */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom right,
+      rgba(26, 26, 46, 0.7) 0%,
+      rgba(26, 26, 46, 0.3) 100%
+    );
+  }
+}
