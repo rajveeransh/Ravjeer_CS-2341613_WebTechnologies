@@ -174,5 +174,5 @@ MongoDB Database
 
 ## 📄 License
 
-This project was created for academic purposes at [Your University Name].  
+This project was created for academic purposes at IILM University.  
 © 2024 [Your Name]. All rights reserved.
