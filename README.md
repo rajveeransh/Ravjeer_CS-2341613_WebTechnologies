@@ -175,4 +175,4 @@ MongoDB Database
 ## 📄 License
 
 This project was created for academic purposes at IILM University.  
-© 2024 [Your Name]. All rights reserved.
+© 2026 Rajveer. All rights reserved.
